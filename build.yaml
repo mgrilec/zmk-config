@@ -21,3 +21,5 @@
 include:
   - board: nice_nano_v2
     shield: reviung41
+  - board: seeeduino_xiao_ble
+    shield: reviung41_dongle prospector_adapter
