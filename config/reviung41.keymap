@@ -47,8 +47,8 @@
             >;
         };
 
-        raise_layer {
-            display-name = "Raise Layer";
+        util {
+            display-name = "utility";
 
             // ----------------------------------------------------------------------------
             // |    |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL |
@@ -64,8 +64,8 @@
             >;
         };
 
-        adjust_layer {
-            display-name = "Adjust Layer";
+        sys {
+            display-name = "system";
 
             // -----------------------------------------------------------------------------------------
             // | RGB BRI+ | RGB SAT+ | RGB HUE+ | RGB ANI+ |    | RGB TOG |   |  BT1  | BT2 | BT3 | BT4 | BT5 | BT CLR |
@@ -81,15 +81,15 @@
             >;
         };
 
-        arrows {
+        nav {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans          &kp UP_ARROW    &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans          &trans          &trans
                         &trans  &trans          &trans          &trans  &trans
             >;
 
-            label = "arrows";
+            label = "nav";
         };
     };
 };
