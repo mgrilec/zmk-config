@@ -1,0 +1,14 @@
+# Copyright 2023 Manna Harbour
+# https://github.com/manna-harbour/miryoku
+
+name: 'Build ergonaut_one'
+on: workflow_dispatch
+jobs:
+  build:
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
+    with:
+      board: '["seeeduino_xiao_ble"]'
+      shield: '["ergonaut_one_left","ergonaut_one_right"]'
+      alphas: 'QWERTY'
+
