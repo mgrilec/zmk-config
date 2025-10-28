@@ -4,8 +4,6 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: janpfischer
-      url-base: https://github.com/janpfischer
     - name: ergonautkb
       url-base: https://github.com/ergonautkb
     # Additional modules containing boards/shields/custom code can be listed here as well
@@ -14,9 +12,6 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
-    - name: zmk-dongle-screen
-      remote: janpfischer
-      revision: main
     - name: ergonautkb-zmk-module
       remote: ergonautkb
       revision: main

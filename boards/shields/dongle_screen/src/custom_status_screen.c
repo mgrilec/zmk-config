@@ -68,9 +68,14 @@ lv_obj_t *zmk_display_status_screen()
     lv_style_set_text_line_space(&global_style, 1);
     lv_obj_add_style(screen, &global_style, LV_PART_MAIN);
 
+    // Create debug text label
+    lv_obj_t *debug_label = lv_label_create(screen);
+    lv_label_set_text(debug_label, "DEBUG");
+    lv_obj_align(debug_label, LV_ALIGN_TOP_MID, 0, 5);
+
 #if CONFIG_DONGLE_SCREEN_OUTPUT_ACTIVE
     zmk_widget_output_status_init(&output_status_widget, screen);
-    lv_obj_align(zmk_widget_output_status_obj(&output_status_widget), LV_ALIGN_TOP_MID, 0, 10);
+    lv_obj_align(zmk_widget_output_status_obj(&output_status_widget), LV_ALIGN_TOP_MID, 0, 25);
 #endif
 
 #if CONFIG_DONGLE_SCREEN_BATTERY_ACTIVE
