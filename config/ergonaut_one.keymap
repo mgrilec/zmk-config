@@ -54,7 +54,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "DZH";
             #binding-cells = <0>;
-            bindings = <&none>, <&kp RIGHT_BRACKET>;
+            bindings = <&kp C_VOLUME_UP>, <&kp RIGHT_BRACKET>;
         };
 
         chh: chh {
@@ -68,7 +68,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "CCH";
             #binding-cells = <0>;
-            bindings = <&none>, <&kp SINGLE_QUOTE>;
+            bindings = <&kp C_VOLUME_DOWN>, <&kp SINGLE_QUOTE>;
         };
 
         kp_dot_comma: kp_dot_comma {
@@ -83,12 +83,12 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "MAIN";
+            display-name = "QWERTY";
             bindings = <
-&mt LGUI ESCAPE      &kp Q  &kp W  &kp E      &kp R            &kp T      &kp Y        &kp U          &kp I      &kp O  &kp P  &zh
-&mt LCTRL TAB        &kp A  &kp S  &kp D      &kp F            &kp G      &kp H        &kp J          &kp K      &kp L  &sh    &dzh
-&mt RIGHT_ALT TILDE  &kp Z  &kp X  &kp C      &kp V            &kp B      &kp N        &kp M          &comma     &dot   &chh   &cch
-                                   &lt 2 TAB  &mt LSHFT SPACE  &lt 1 RET  &lt 1 ENTER  &kp BACKSPACE  &lt 2 DEL
+&mt LGUI ESCAPE      &kp Q  &kp W  &kp E            &kp R            &kp T      &kp Y        &kp U                      &kp I      &kp O  &kp P  &zh
+&mt LCTRL TAB        &kp A  &kp S  &kp D            &kp F            &kp G      &kp H        &kp J                      &kp K      &kp L  &sh    &dzh
+&mt RIGHT_ALT TILDE  &kp Z  &kp X  &kp C            &kp V            &kp B      &kp N        &kp M                      &comma     &dot   &chh   &cch
+                                   &lt 2 BACKSPACE  &mt LSHFT SPACE  &lt 1 RET  &lt 1 ENTER  &mt RIGHT_SHIFT BACKSPACE  &lt 2 DEL
             >;
         };
 
