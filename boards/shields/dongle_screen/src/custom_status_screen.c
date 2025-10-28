@@ -5,6 +5,7 @@
  */
 
 #include "custom_status_screen.h"
+#include "images/pine.h"
 
 #if CONFIG_DONGLE_SCREEN_OUTPUT_ACTIVE
 #include "widgets/output_status.h"
@@ -47,19 +48,11 @@ lv_obj_t *zmk_display_status_screen()
     lv_obj_set_style_bg_color(screen, lv_color_hex(0x000000), LV_PART_MAIN);
     lv_obj_set_style_bg_opa(screen, 255, LV_PART_MAIN);
 
-    // Create first pine tree (larger)
-    tree1 = lv_line_create(screen);
-    lv_line_set_points(tree1, tree1_points, 6);
-    lv_obj_set_style_line_color(tree1, lv_color_hex(0x005500), 0);
-    lv_obj_set_style_line_width(tree1, 2, 0);
-    lv_obj_align(tree1, LV_ALIGN_BOTTOM_LEFT, 10, -5);
-
-    // Create second pine tree (smaller)
-    tree2 = lv_line_create(screen);
-    lv_line_set_points(tree2, tree2_points, 6);
-    lv_obj_set_style_line_color(tree2, lv_color_hex(0x004400), 0);
-    lv_obj_set_style_line_width(tree2, 2, 0);
-    lv_obj_align(tree2, LV_ALIGN_BOTTOM_LEFT, 35, -5);
+    // Create and position the pine image in the background
+    lv_obj_t *pine_img = lv_img_create(screen);
+    lv_img_set_src(pine_img, &pine);  // 'pine' should be defined in pine.h
+    lv_obj_align(pine_img, LV_ALIGN_LEFT_MID, 0, 0);  // Center of image aligned to left border
+    lv_obj_set_style_img_opa(pine_img, 128, 0);  // Set to 50% opacity
 
     lv_style_init(&global_style);
     // lv_style_set_text_font(&global_style, &lv_font_unscii_8); // ToDo: Font is not recognized
@@ -67,11 +60,6 @@ lv_obj_t *zmk_display_status_screen()
     lv_style_set_text_letter_space(&global_style, 1);
     lv_style_set_text_line_space(&global_style, 1);
     lv_obj_add_style(screen, &global_style, LV_PART_MAIN);
-
-    // Create debug text label
-    lv_obj_t *debug_label = lv_label_create(screen);
-    lv_label_set_text(debug_label, "DEBUG");
-    lv_obj_align(debug_label, LV_ALIGN_TOP_MID, 0, 5);
 
 #if CONFIG_DONGLE_SCREEN_OUTPUT_ACTIVE
     zmk_widget_output_status_init(&output_status_widget, screen);
