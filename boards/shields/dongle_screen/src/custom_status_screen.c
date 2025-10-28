@@ -41,8 +41,6 @@ lv_obj_t *zmk_display_status_screen()
 {
     lv_obj_t *screen;
     lv_obj_t *tree1, *tree2;
-    lv_point_t tree1_points[] = {{0,20}, {5,0}, {10,20}, {8,20}, {12,5}, {16,20}};
-    lv_point_t tree2_points[] = {{0,15}, {4,0}, {8,15}, {6,15}, {9,4}, {12,15}};
 
     screen = lv_obj_create(NULL);
     lv_obj_set_style_bg_color(screen, lv_color_hex(0x000000), LV_PART_MAIN);
@@ -63,7 +61,7 @@ lv_obj_t *zmk_display_status_screen()
 
 #if CONFIG_DONGLE_SCREEN_OUTPUT_ACTIVE
     zmk_widget_output_status_init(&output_status_widget, screen);
-    lv_obj_align(zmk_widget_output_status_obj(&output_status_widget), LV_ALIGN_TOP_MID, 0, 25);
+    lv_obj_align(zmk_widget_output_status_obj(&output_status_widget), LV_ALIGN_TOP_MID, 0, 10);
 #endif
 
 #if CONFIG_DONGLE_SCREEN_BATTERY_ACTIVE
@@ -73,7 +71,7 @@ lv_obj_t *zmk_display_status_screen()
 
 #if CONFIG_DONGLE_SCREEN_WPM_ACTIVE
     zmk_widget_wpm_status_init(&wpm_status_widget, screen);
-    lv_obj_align(zmk_widget_wpm_status_obj(&wpm_status_widget), LV_ALIGN_TOP_LEFT, 20, 20);
+    lv_obj_align(zmk_widget_wpm_status_obj(&wpm_status_widget), LV_ALIGN_TOP_LEFT, 20, 10);
 #endif
 
 #if CONFIG_DONGLE_SCREEN_LAYER_ACTIVE
