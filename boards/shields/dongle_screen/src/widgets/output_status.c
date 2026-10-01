@@ -33,8 +33,15 @@ struct output_status_state
 
 static struct output_status_state get_state(const zmk_event_t *_eh)
 {
+    struct zmk_endpoint_instance endpoint = zmk_endpoint_get_selected();
+    // Newer ZMK reports NONE when disconnected. Show the intended transport,
+    // matching the built-in output widget, instead of always pointing at BLE.
+    if (endpoint.transport == ZMK_TRANSPORT_NONE) {
+        endpoint = zmk_endpoint_get_preferred();
+    }
+
     return (struct output_status_state){
-        .selected_endpoint = zmk_endpoint_get_selected(),                  // USB or BLE
+        .selected_endpoint = endpoint,                                   // USB or BLE
         .active_profile_index = zmk_ble_active_profile_index(),            // 0-3 BLE profiles
         .active_profile_connected = zmk_ble_active_profile_is_connected(), // 0 = not connected, 1 = connected
         .active_profile_bonded = !zmk_ble_active_profile_is_open(),        // 0 =  BLE not bonded, 1 = bonded
