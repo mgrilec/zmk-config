@@ -90,7 +90,7 @@ disp_spi: &spi3 {
    };
 };
 
-&i2c0 {
+&xiao_i2c {
    status = "okay";
 
    apds9960: apds9960@39 {
@@ -107,4 +107,3 @@ disp_spi: &spi3 {
   pinctrl-1 = <&pwm1_sleep>;
   pinctrl-names = "default", "sleep";
 };
-
