@@ -12,6 +12,26 @@
 &mt { quick-tap-ms = <200>; };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        // Combo reset behaviors run on the central (the dongle).
+        // Use the still-connected half after one second without typing.
+        dongle_reset_left {
+            timeout-ms = <100>;
+            require-prior-idle-ms = <1000>;
+            key-positions = <1 2 3 4>; // Q W E R
+            bindings = <&sys_reset>;
+        };
+
+        dongle_reset_right {
+            timeout-ms = <100>;
+            require-prior-idle-ms = <1000>;
+            key-positions = <7 8 9 10>; // U I O P
+            bindings = <&sys_reset>;
+        };
+    };
+
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
