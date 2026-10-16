@@ -40,17 +40,16 @@ lv_style_t global_style;
 lv_obj_t *zmk_display_status_screen()
 {
     lv_obj_t *screen;
-    lv_obj_t *tree1, *tree2;
 
     screen = lv_obj_create(NULL);
     lv_obj_set_style_bg_color(screen, lv_color_hex(0x000000), LV_PART_MAIN);
     lv_obj_set_style_bg_opa(screen, 255, LV_PART_MAIN);
 
     // Create and position the pine image in the background
-    lv_obj_t *pine_img = lv_img_create(screen);
-    lv_img_set_src(pine_img, &pine);  // 'pine' should be defined in pine.h
+    lv_obj_t *pine_img = lv_image_create(screen);
+    lv_image_set_src(pine_img, &pine);
     lv_obj_align(pine_img, LV_ALIGN_LEFT_MID, 0, 0);  // Center of image aligned to left border
-    lv_obj_set_style_img_opa(pine_img, 128, 0);  // Set to 50% opacity
+    lv_obj_set_style_image_opa(pine_img, 128, 0);  // Set to 50% opacity
 
     lv_style_init(&global_style);
     // lv_style_set_text_font(&global_style, &lv_font_unscii_8); // ToDo: Font is not recognized

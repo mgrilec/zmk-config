@@ -1,6 +1,4 @@
 manifest:
-  defaults:
-    revision: v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
@@ -11,6 +9,8 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
+      # Upstream main, 2026-09-26; includes the split BLE discovery buffer fix.
+      revision: 5b51501fead672c41b5cfb396f3dafe0894bf4e9
       import: app/west.yml
     - name: ergonautkb-zmk-module
       remote: ergonautkb

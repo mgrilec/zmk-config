@@ -1,6 +1,12 @@
 name: Build ZMK firmware
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
+    # Keep the build tooling aligned with config/west.yml.
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@5b51501fead672c41b5cfb396f3dafe0894bf4e9

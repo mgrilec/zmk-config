@@ -1,9 +1,16 @@
+#include <zephyr/init.h>
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/display.h>
 #include <zephyr/logging/log.h>
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
-int disp_set_orientation(void)
+/* Rotate before Zephyr creates the LVGL display from the driver capabilities. */
+#if defined(CONFIG_LV_Z_AUTO_INIT)
+BUILD_ASSERT(CONFIG_LV_Z_INIT_PRIORITY > 60,
+             "LVGL must initialize after the dongle screen orientation");
+#endif
+
+static int disp_set_orientation(void)
 {
 	// Set the orientation
 	const struct device *display = DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
