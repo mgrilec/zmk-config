@@ -1,0 +1,61 @@
+/*
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <physical_layouts.dtsi>
+
+/ {
+    chosen {
+        /delete-property/ zmk,matrix_transform;
+        zmk,physical-layout = &temper_layout;
+    };
+
+    temper_layout: temper_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "Temper";
+        transform = <&default_transform>;
+        kscan = <&kscan0>;
+
+        // PCB switch centers, mirrored for the right half, in matrix/keymap order.
+        // Source: https://github.com/raeedcho/temper/blob/main/pcb/temper.kicad_pcb
+        // One unit is 18 mm; key dimensions are 18 x 17 mm.
+        keys //                         w   h    x   y     rot   rx  ry
+            = <&key_physical_attrs 100 94    0 100 0         50 147>
+            , <&key_physical_attrs 100 94  100  33 0        150  80>
+            , <&key_physical_attrs 100 94  200   0 0        250  47>
+            , <&key_physical_attrs 100 94  300  37 0        350  84>
+            , <&key_physical_attrs 100 94  400  50 0        450  97>
+            , <&key_physical_attrs 100 94  800  50 0        850  97>
+            , <&key_physical_attrs 100 94  900  37 0        950  84>
+            , <&key_physical_attrs 100 94 1000   0 0       1050  47>
+            , <&key_physical_attrs 100 94 1100  33 0       1150  80>
+            , <&key_physical_attrs 100 94 1200 100 0       1250 147>
+            , <&key_physical_attrs 100 94    0 194 0         50 241>
+            , <&key_physical_attrs 100 94  100 128 0        150 175>
+            , <&key_physical_attrs 100 94  200  94 0        250 141>
+            , <&key_physical_attrs 100 94  300 131 0        350 178>
+            , <&key_physical_attrs 100 94  400 144 0        450 191>
+            , <&key_physical_attrs 100 94  800 144 0        850 191>
+            , <&key_physical_attrs 100 94  900 131 0        950 178>
+            , <&key_physical_attrs 100 94 1000  94 0       1050 141>
+            , <&key_physical_attrs 100 94 1100 128 0       1150 175>
+            , <&key_physical_attrs 100 94 1200 194 0       1250 241>
+            , <&key_physical_attrs 100 94    0 289 0         50 336>
+            , <&key_physical_attrs 100 94  100 222 0        150 269>
+            , <&key_physical_attrs 100 94  200 189 0        250 236>
+            , <&key_physical_attrs 100 94  300 226 0        350 273>
+            , <&key_physical_attrs 100 94  400 239 0        450 286>
+            , <&key_physical_attrs 100 94  800 239 0        850 286>
+            , <&key_physical_attrs 100 94  900 226 0        950 273>
+            , <&key_physical_attrs 100 94 1000 189 0       1050 236>
+            , <&key_physical_attrs 100 94 1100 222 0       1150 269>
+            , <&key_physical_attrs 100 94 1200 289 0       1250 336>
+            , <&key_physical_attrs 100 94  267 337 0        317 384>
+            , <&key_physical_attrs 100 94  379 351 1500     429 398>
+            , <&key_physical_attrs 100 94  493 369 (-6000)  543 416>
+            , <&key_physical_attrs 100 94  707 369 6000     757 416>
+            , <&key_physical_attrs 100 94  821 351 (-1500)  871 398>
+            , <&key_physical_attrs 100 94  933 337 0        983 384>
+            ;
+    };
+};
